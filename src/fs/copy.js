@@ -30,8 +30,9 @@ const createCopyFolder = () => {
     return new Promise((resolve) => {
         mkdir(join(__dirname, 'files-copy'),
             err => {
-                if (err) console.log('FS operation failed');
-                console.log("folder 'files-copy' was created");
+                err
+                    ? console.log('FS operation failed')
+                    : console.log("folder 'files-copy' was created");
                 resolve();
             });
     });
