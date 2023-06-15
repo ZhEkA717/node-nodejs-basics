@@ -1,7 +1,4 @@
-import {
-    writeFile,
-    readFile
-} from 'fs';
+import { writeFile, readFile } from 'fs';
 
 import { fileURLToPath } from 'url';
 import { join, dirname } from 'path';

@@ -1,15 +1,9 @@
 import { rename as renameFile } from 'fs'; 
 
-import {
-    fileURLToPath
-} from 'url';
-import {
-    join,
-    dirname
-} from 'path';
+import { fileURLToPath } from 'url';
+import { join, dirname } from 'path';
 
-const __filename = fileURLToPath(
-    import.meta.url);
+const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const rename = async () => {
