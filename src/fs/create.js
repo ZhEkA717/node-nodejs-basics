@@ -15,9 +15,8 @@ const create = async () => {
     readFile(path, 'utf8', async (err, data) => {
 
         data
-            ?
-            console.log('FS operation failed') :
-            writeFile(
+            ? console.log('FS operation failed') 
+            : writeFile(
                 path,
                 "I am fresh and young",
                 (err) => {
