@@ -1,5 +1,15 @@
+import { stdin, stdout } from 'process'
+import { Transform } from 'stream';
+
 const transform = async () => {
-    // Write your code here 
+    console.log('Введите текст...')
+    stdin.on("data",(data)=>{
+        const myBuffer = Buffer.from(data,"utf-8");
+        const str = myBuffer.toString();
+
+        
+        stdout.write(str.split('').reverse().join(''));
+    })
 };
 
 await transform();
