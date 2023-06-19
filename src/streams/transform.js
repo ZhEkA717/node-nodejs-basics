@@ -1,15 +1,18 @@
 import { stdin, stdout } from 'process'
-import { Transform } from 'stream';
+import { Transform, pipeline } from 'stream';
 
 const transform = async () => {
-    console.log('Введите текст...')
-    stdin.on("data",(data)=>{
-        const myBuffer = Buffer.from(data,"utf-8");
-        const str = myBuffer.toString();
 
-        
-        stdout.write(str.split('').reverse().join(''));
+    const transformFromFile = new Transform({
+        transform(chunk, encoding, callback) {
+            callback(
+                null,
+                chunk.toString().split('').reverse().join(''),
+            );
+        }
     })
+
+    pipeline(stdin, transformFromFile, stdout);
 };
 
 await transform();
