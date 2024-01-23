@@ -1,12 +1,13 @@
 const parseArgs = () => {
     const names = process.argv
-    .filter((name) => name.startsWith('--'))
-    .map((item) => {
-        const name = item.substring(2).split('=');
-        return `${name[0]} is ${name[1]}`
-    });
+    .map((item, i, arr) => {
+        if (item.startsWith('--')) {
+            return `${item.substring(2)} is ${arr[i + 1]}`
+        }
+    })
+    .join('\n');
 
-    process.stdout.write(names.join('\n'));
+    console.log(names);
 };
 
 parseArgs();
