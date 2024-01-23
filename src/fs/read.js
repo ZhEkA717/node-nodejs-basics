@@ -8,9 +8,9 @@ const __dirname = dirname(__filename);
 
 const read = async () => {
     readFile(join(__dirname, 'files/fileToRead.txt'), 'utf8', (err, data) => {
-        err
-            ? console.log('FS operation failed')
-            : console.log(data);
+        if (err) throw new Error('FS operation failed')
+        
+        console.log(data);
     });
 };
 

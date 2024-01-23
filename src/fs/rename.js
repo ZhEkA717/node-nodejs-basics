@@ -10,11 +10,10 @@ const rename = async () => {
     renameFile(
         join(__dirname,'files/wrongFilename.txt'),
         join(__dirname,'files/properFilename.md'),
-        (err) => {
-        err
-            ? console.log('FS operation failed')
-            : console.log('File renamed successfully!');
-
+        err => {
+        if (err) throw new Error('FS operation failed');
+        
+        console.log('File was renamed!');
     });
 };
 

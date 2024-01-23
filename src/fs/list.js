@@ -10,9 +10,9 @@ const __dirname = dirname(__filename);
 const list = async () => {
     readdir(join(__dirname, 'files'),
             (err, files) => {
-                err
-                 ? console.log('FS operation failed')
-                 : console.log(files);
+                if (err) throw new Error('FS operation failed')
+                
+                console.log(files);
             })
 };
 
