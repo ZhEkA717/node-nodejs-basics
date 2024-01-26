@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const calculateHash = async () => {
-    const hash = createHash('sha1');
+    const hash = createHash('SHA256');
     hash.setEncoding('hex');
 
     const fd = createReadStream(join(__dirname, 'files/fileToCalculateHashFor.txt'))
@@ -17,7 +17,6 @@ const calculateHash = async () => {
             hash.end();
             console.log(hash.read());
         });
-
     fd.pipe(hash);
 };
 
